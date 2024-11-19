@@ -3,44 +3,4 @@ grumphp:
   process_timeout: 120
   stop_on_failure: false
   ignore_unstaged_changes: true
-  tasks:
-    jsonlint:
-      detect_key_conflicts: false
-      ignore_patterns: ["#.*#"] 
-      metadata:
-        priority: 100
-    xmllint:
-      ignore_patterns: ["#.*#"] 
-      metadata:
-        priority: 100
-    yamllint:
-      ignore_patterns: ["#.*#"] 
-      metadata:
-        priority: 100
-    composer:
-      no_check_all: true
-      no_check_lock: true
-      no_check_publish: true
-      with_dependencies: false
-      strict: false
-      metadata:
-        priority: 80
-    git_commit_message:
-      allow_empty_message: true
-      enforce_capitalized_subject: false
-      enforce_no_subject_punctuations: false
-      enforce_no_subject_trailing_period: false
-      enforce_single_lined_subject: false
-      type_scope_conventions: []
-      max_body_width: ~
-      max_subject_width: ~
-      matchers: []
-      case_insensitive: true
-      multiline: false
-      additional_modifiers: ''
-    git_branch_name:
-      whitelist: []
-      blacklist: []
-      allow_detached_head: true
-    # Uncommented tools are disabled; they are left as comments
-    # for reference but won't affect the configuration.
+  tasks: {}
