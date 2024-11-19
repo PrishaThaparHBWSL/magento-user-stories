@@ -4438,7 +4438,7 @@
         'magento/module-wishlist-sample-data' => array(
             'pretty_version' => '100.4.1',
             'version' => '100.4.1.0',
-            'reference' => 'a6156aef942a4e4de0add34a73d066a9458cefc6',
+            'reference' => null,
             'type' => 'magento2-module',
             'install_path' => __DIR__ . '/../magento/module-wishlist-sample-data',
             'aliases' => array(),
