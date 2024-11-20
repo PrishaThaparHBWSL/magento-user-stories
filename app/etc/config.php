@@ -359,6 +359,7 @@ return [
         'Prisha_Mod1' => 1,
         'Prisha_Mod2' => 1,
         'Prisha_Mod3' => 1,
+        'Prisha_Mod4' => 1,
         'Temando_ShippingRemover' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
