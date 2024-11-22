@@ -1,5 +1,4 @@
 <?php
-
 namespace Prisha\Mod8\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
