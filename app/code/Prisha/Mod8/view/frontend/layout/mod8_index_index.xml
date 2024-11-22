@@ -1,8 +1,0 @@
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceContainer name="content">
-            <block class="Prisha\Mod8\Block\TableBlock" name="mod8.save.block" template="Prisha_Mod8::save.phtml"/>
-            <block class="Prisha\Mod8\Block\TableBlock" name="mod8.table.block" template="Prisha_Mod8::table.phtml"/>
-        </referenceContainer>
-    </body>
-</page>
