@@ -1,0 +1,27 @@
+<?php $employees = $block->getEmployees(); ?>
+<table>
+    <thead>
+        <tr>
+            <th><a href="<?php echo $block->getUrl('*/*/', ['sort' => 'asc']); ?>">ID</a></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($employees as $employee): ?>
+            <tr>
+                <td><?php echo $employee->getEmployeeId(); ?></td>
+                <td><?php echo $employee->getFirstName(); ?></td>
+                <td><?php echo $employee->getLastName(); ?></td>
+                <td><?php echo $employee->getEmailId(); ?></td>
+                <td><?php echo $employee->getAddress(); ?></td>
+                <td><?php echo $employee->getPhoneNumber(); ?></td>
+                <td><a href="<?php echo $block->getDeleteUrl($employee->getEmployeeId()); ?>">Delete</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
