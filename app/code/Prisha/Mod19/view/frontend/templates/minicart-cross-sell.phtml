@@ -1,0 +1,19 @@
+<?php /** @var $block \Magento\Framework\View\Element\Template */ ?>
+<div class="minicart-cross-sell">
+    <h4><?php echo __('You may also like:'); ?></h4>
+    <ul>
+        <?php foreach ($block->getParentBlock()->getItems() as $item): ?>
+            <?php $crossSellProducts = $item->getCrossSellProducts(); ?>
+            <?php if ($crossSellProducts): ?>
+                <?php foreach ($crossSellProducts as $crossSell): ?>
+                    <li>
+                        <a href="<?php echo $crossSell->getProductUrl(); ?>">
+                            <img src="<?php echo $block->getImageUrl($crossSell); ?>" alt="<?php echo $crossSell->getName(); ?>" />
+                            <span><?php echo $crossSell->getName(); ?></span>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+</div>
