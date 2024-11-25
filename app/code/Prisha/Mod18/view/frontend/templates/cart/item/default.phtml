@@ -1,0 +1,7 @@
+<?php
+/** @var \Magento\Checkout\Model\Cart $cartItem */
+$price = $block->getItem()->getCustomPrice();
+?>
+<div class="cart-item-price">
+    <span class="price"><?= $block->escapeHtml($price) ?></span>
+</div>
