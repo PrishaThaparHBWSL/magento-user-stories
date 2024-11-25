@@ -9,7 +9,7 @@ class ListProduct
         $result
     ) {
         $product = $subject->getProduct();
-        if ($product->getQty() <= 1) {
+        if ($product!==null && $product->getQty() <= 1) {
             echo "This stock is less";
         }
         return $result;

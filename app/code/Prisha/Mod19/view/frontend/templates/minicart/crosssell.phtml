@@ -1,0 +1,17 @@
+<?php
+$crossSellProducts = $block->getCrossSellProducts();
+if (!empty($crossSellProducts)): ?>
+    <div class="cross-sell-products">
+        <h3>Recommended for You</h3>
+        <ul>
+            <?php foreach ($crossSellProducts as $product): ?>
+                <li>
+                    <a href="<?= $product->getProductUrl(); ?>">
+                        <img src="<?= $product->getImageUrl(); ?>" alt="<?= $product->getName(); ?>" />
+                        <span><?= $product->getName(); ?></span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
