@@ -1,0 +1,11 @@
+
+<div class="block filter">
+    <div class="title"><?php echo __('Rating') ?></div>
+    <div class="content">
+        <ul>
+            <?php foreach ($block->getRatings() as $rating): ?>
+                <li><a href="<?php echo $block->escapeUrl($rating['url']) ?>"><?php echo $rating['label'] ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
