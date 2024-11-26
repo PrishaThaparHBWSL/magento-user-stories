@@ -357,6 +357,7 @@ return [
         'MageMastery_Popup' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
+        'Prisha_Checkout' => 1,
         'Prisha_Mod1' => 1,
         'Prisha_Mod14' => 1,
         'Prisha_Mod15' => 1,
