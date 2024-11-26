@@ -8,7 +8,7 @@ define([
 
     return Component.extend({
         defaults:{
-            template:'Bharat_Checkout/contact',
+            template:'Prisha_Checkout/contact',
             visible: true,
             contactName: '',
             contactEmail: ''
