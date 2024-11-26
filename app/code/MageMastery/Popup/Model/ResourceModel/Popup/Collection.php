@@ -1,10 +1,10 @@
-<?php declare(strict_types=1);
-
+<?php
+declare(strict_types=1);
 namespace MageMastery\Popup\Model\ResourceModel\Popup;
 
 use MageMastery\Popup\Model\Popup;
 use MageMastery\Popup\Model\ResourceModel\Popup as PopupResource;
-use \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 class Collection extends AbstractCollection
 {
@@ -12,4 +12,5 @@ class Collection extends AbstractCollection
     {
         $this->_init(Popup::class, PopupResource::class);
     }
+
 }

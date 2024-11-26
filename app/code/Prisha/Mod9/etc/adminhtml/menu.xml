@@ -1,7 +1,14 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend/etc/menu.xsd">
     <menu>
-        <add id="Prisha_Mod9::main_menu" title="Mod9" module="Prisha_Mod9" sortOrder="10" resource="Prisha_Mod9::config"/>
-        <add id="Prisha_Mod9::sub_menu" title="View Configuration" module="Prisha_Mod9" sortOrder="20" parent="Prisha_Mod9::main_menu" action="mod9/index/index" resource="Prisha_Mod9::config"/>
+        <!-- <add id="Prisha_Mod9::main_menu" title="Mod9" module="Prisha_Mod9" sortOrder="10" resource="Prisha_Mod9::config"/> -->
+        <!-- <add id="Prisha_Mod9::sub_menu" title="View Configuration" module="Prisha_Mod9" sortOrder="20" parent="Prisha_Mod9::main_menu" action="mod9/index/index" resource="Prisha_Mod9::config"/> -->
+        <add id="Prisha_Mod9::menu" 
+             title="Mod9 Menu" 
+             module="Prisha_Mod9" 
+             sortOrder="100" 
+             parent="Magento_Backend::content" 
+             action="mod9/adminhtml/index/display" 
+             resource="Prisha_Mod9::config"/>
     </menu>
 </config>
