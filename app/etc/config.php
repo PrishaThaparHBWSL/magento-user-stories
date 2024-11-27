@@ -370,6 +370,7 @@ return [
         'Prisha_Mod21' => 1,
         'Prisha_Mod22' => 1,
         'Prisha_Mod23' => 1,
+        'Prisha_Mod24' => 1,
         'Prisha_Mod3' => 1,
         'Prisha_Mod4' => 1,
         'Prisha_Mod5' => 1,
