@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<preference for="\Magento\Catalog\Api\Data\CategoryInterface" type="Prisha2\Mod1\Model\CustomCategory" />
+    <type name="Prisha2\Mod1\Test">
+        <arguments>
+            <argument name="dataArray" xsi:type="array">
+                <item name="key1" xsi:type="string">
+                v1
+                </item>
+                <item name="key2" xsi:type="string">
+                v2
+                </item>
+            </argument>
+            <argument name="textString" xsi:type="string">helllo</argument>
+        </arguments>
+    </type>
+</config>
