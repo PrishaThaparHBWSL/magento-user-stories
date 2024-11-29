@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_controller_product_view">
+        <observer name="log_prod_name" instance="Prisha2\Mod3\Observer\LogProdName" />
+        <observer name="log_prod_details" instance="Prisha2\Mod3\Observer\LogProdDetails" />
+    </event>
+    <event name="controller_action_postdispatch">
+        <observer name="log_pg_html" instance="Prisha2\Mod3\Observer\LogPgHtml" />
+    </event>
+</config>

@@ -20,3 +20,4 @@ class LogProductName implements ObserverInterface
         $this->logger->info('Product Viewed: ' . $productName);
     }
 }
+?>

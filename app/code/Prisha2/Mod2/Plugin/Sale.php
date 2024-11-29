@@ -20,7 +20,8 @@ class Sale
         if ($price < 20) {
             $saleImage = $this->urlBuilder->getBaseUrl(['_type' => UrlInterface::URL_TYPE_MEDIA]) . 'Prisha2/Mod2/logo.jpg';
             $saleHtml = sprintf('<img src="%s" alt="sale" style="width: 50px; height: 50px; margin-left: 10px;"/>', $saleImage);
-            $result .= "  " . $saleHtml ;
+            // $result .= " " . $saleHtml;
+            $result .= " " . $saleImage;
         }
         return $result;
     }
