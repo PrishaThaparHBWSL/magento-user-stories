@@ -7,12 +7,18 @@ class Breadcrumb
 {
     public function aroundAddCrumb(Breadcrumbs $subject, callable $proceed, $crumbName, $crumbInfo)
     {
-        
+        // If "home" is being added, prepend the custom breadcrumb
         if ($crumbName === 'home') {
-            $crumbInfo['label'] = 'Hummingbird   Home';
+            $subject->addCrumb(
+                'hbwsl',
+                [
+                    'label' => __('HBWSL'),
+                    'link'  => '/'
+                ]
+            );
         }
 
+        // Proceed with the original method
         return $proceed($crumbName, $crumbInfo);
     }
 }
-?>
