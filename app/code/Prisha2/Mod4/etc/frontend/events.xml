@@ -4,5 +4,8 @@
     <event name="controller_front_send_response_before">
     <!-- is suitable because it is triggered for all requests, regardless of the controller or action -->
         <observer name="log_all_routes" instance="Prisha2\Mod4\Observer\LogAllRoutes" />
+        <observer name="redirect_404" instance="Prisha2\Mod4\Observer\Redirect404" />
     </event>
+    <!-- <event name="controller_action_predispatch">
+    </event> -->
 </config>

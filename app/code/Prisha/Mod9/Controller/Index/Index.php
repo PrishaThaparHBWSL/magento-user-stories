@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\Mod9\Controller\Index;
+namespace Prisha2\Mod9\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
