@@ -1,6 +1,76 @@
-grumphp:
-  hide_circumvention_tip: true
-  process_timeout: 120
-  stop_on_failure: false
-  ignore_unstaged_changes: true
-  tasks: {}
+# grumphp:
+#   hide_circumvention_tip: true
+#   process_timeout: 120
+#   stop_on_failure: false
+#   ignore_unstaged_changes: true
+#   tasks: {}
+
+
+
+parameters:
+  git_hook_variables:
+    right_hook: true
+
+  tasks:
+    # PHP CodeSniffer for PSR-12 or custom standards
+    phpcs:
+      standard: PSR12 # Replace with a custom standard if needed
+      paths: # Paths to check
+        - src/
+        - tests/
+      ignore_patterns:
+        - vendor/
+      triggered_by: [php]
+
+    # PHPStan for static analysis
+    phpstan:
+      configuration: phpstan.neon # Make sure to provide a valid PHPStan configuration
+      level: max
+      memory_limit: "1G"
+
+    # PHPUnit for testing
+    phpunit:
+      config_file: phpunit.xml # Adjust to match your PHPUnit configuration file
+      cache_result: true
+
+    # Composer validation
+    composer:
+      file: composer.json
+
+    # YAML Linter
+    yamllint:
+      ignore_patterns:
+        - vendor/
+        - storage/
+      triggered_by: [yml, yaml]
+
+    # JSON Linter
+    jsonlint:
+      ignore_patterns:
+        - vendor/
+      triggered_by: [json]
+
+    # Security checker for known vulnerabilities
+    securitychecker: ~
+
+    # Git commit message conventions
+    git_commit_message:
+      matchers:
+        - "/^(feat|fix|chore|docs|style|refactor|test|ci|perf): .{10,}/"
+      case_insensitive: false
+      multiline: false
+
+  hooks:
+    pre-commit:
+      tasks:
+        - phpcs
+        - phpstan
+        - phpunit
+        - composer
+        - yamllint
+        - jsonlint
+        - securitychecker
+
+    commit-msg:
+      tasks:
+        - git_commit_message

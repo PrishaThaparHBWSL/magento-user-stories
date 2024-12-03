@@ -62,7 +62,7 @@ atlassian*
 !/pub/media/sitemap/.htaccess
 /pub/static/*
 !/pub/static/.htaccess
-
+/grumphp.yml
 /var/*
 !/var/.htaccess
 /vendor/*

@@ -30,7 +30,8 @@ class Index extends Action
         // var_dump($isEnabled, $textToDisplay);
 
         if($isEnabled) {
-            echo htmlspecialchars($textToDisplay);
+            // echo htmlspecialchars($textToDisplay);
+            echo "from admin pannel : " . $textToDisplay;
         } else {
             echo "The feature is disabled.";
         }
