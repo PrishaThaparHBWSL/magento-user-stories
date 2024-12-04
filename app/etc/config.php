@@ -365,6 +365,7 @@ return [
         'Prisha2_Mod5' => 1,
         'Prisha2_Mod6' => 1,
         'Prisha2_Mod7' => 1,
+        'Prisha2_Mod8' => 1,
         'Prisha2_Mod9' => 1,
         'Prisha_Checkout' => 0,
         'Prisha_Mod1' => 0,

@@ -23,7 +23,7 @@ class Index extends Action
 
     public function execute()
     {
-        $productId = 1;
+        $productId = 12;
         $product = $this->productRepository->getById($productId);
         $resultRedirect = $this->resultRedirectFactory->create();
         $resultRedirect->setUrl($product->getProductUrl());
