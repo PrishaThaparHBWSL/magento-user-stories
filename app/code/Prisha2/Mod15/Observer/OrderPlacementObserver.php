@@ -27,12 +27,14 @@ class OrderPlacementObserver implements ObserverInterface
         $customerGroupId = $order->getCustomerGroupId();
         $this->logger->info("Order Group ID: " . $customerGroupId);
         $this->logger->info("Order Amount: " . $amount);
+           if($customerGroupId == 0){  //designated customer group
             $orderPlace=$this->orderPlacementFactory->create();
-        $orderPlace->setData([
-            'customer_group_id' => $customerGroupId,
-            'total_sales_amount' => $amount
-        ]);
-        $orderPlace->save();
+            $orderPlace->setData([
+                'customer_group_id' => $customerGroupId,
+                'total_sales_amount' => $amount
+            ]);
+            $orderPlace->save();
+        }
     }
 }
 
