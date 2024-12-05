@@ -359,6 +359,7 @@ return [
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Prisha2_Mod1' => 1,
+        'Prisha2_Mod14' => 1,
         'Prisha2_Mod2' => 1,
         'Prisha2_Mod3' => 1,
         'Prisha2_Mod4' => 1,
