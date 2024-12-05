@@ -34,7 +34,7 @@ class Redirect404 implements ObserverInterface
 
         if ($statuscode == 404) {
             $this->actionFlag->set('',\Magento\Framework\App\Action\Action::FLAG_NO_DISPATCH, true);
-            $this->redirect->redirect($this->response,'/contact/');
+            $this->redirect->redirect($this->response,'/contact');
         }
     }
 }

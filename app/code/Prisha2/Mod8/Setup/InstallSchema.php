@@ -11,7 +11,7 @@ class InstallSchema implements InstallSchemaInterface
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $installer = $setup;
-
+        
         $installer->startSetup();
 
         if(!$installer->tableExists('employee_table')) {
@@ -27,14 +27,14 @@ class InstallSchema implements InstallSchemaInterface
             ->addColumn(
                 'first_name',
                 Table::TYPE_TEXT,
-                255,
+                30,
                 ['nullable' => false, 'default' => ''],
                 'First Name'
             )
             ->addColumn(
                 'last_name',
                 Table::TYPE_TEXT,
-                255,
+                30,
                 ['nullable' => false],
                 'Last Name'
             )
@@ -44,6 +44,20 @@ class InstallSchema implements InstallSchemaInterface
                 255,
                 ['nullable' => false, 'default' => ''],
                 'Email ID'
+            )
+            ->addColumn(
+                'address',
+                Table::TYPE_TEXT,
+                255,
+                ['nullable' => false, 'default' => ''],
+                'Address'
+            )
+            ->addColumn(
+                'phone_number',
+                Table::TYPE_TEXT,
+                10,
+                ['nullable' => false, 'default' => ''],
+                'Phone Number'
             )
             ->setComment('Employee Table');
         $installer->getConnection()->createTable($table);
