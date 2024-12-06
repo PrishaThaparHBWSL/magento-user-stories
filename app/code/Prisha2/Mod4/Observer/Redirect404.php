@@ -4,39 +4,39 @@ namespace Prisha2\Mod4\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
-use Magento\Framework\App\Response\RedirectInterface;
-use Magento\Framework\App\ActionFlag;
-use Magento\Framework\App\RequestInterface;
-use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\App\ResponseFactory;
+use Magento\Framework\UrlInterface;
+use Magento\Framework\Message\ManagerInterface;
+use Psr\Log\LoggerInterface;
 
 class Redirect404 implements ObserverInterface
 {
-    protected $redirect;
-    protected $actionFlag;
-    protected $request;
-    protected $response;
-
+    protected $responseFactory;
+    protected $url;
+    protected $logger;
     public function __construct(
-        RedirectInterface $redirect,
-        ActionFlag $actionFlag,
-        RequestInterface $request,
-        ResponseInterface $response
-    ){
-        $this->redirect = $redirect;
-        $this->actionFlag = $actionFlag;
-        $this->request = $request;
-        $this->response = $response;
+        ResponseFactory $responseFactory,
+        UrlInterface $url,
+        LoggerInterface $logger
+    ) {
+        $this->responseFactory = $responseFactory;
+        $this->url = $url;
+        $this->logger = $logger;
     }
-
     public function execute(Observer $observer)
     {
-        $statuscode = $this->response->getStatusCode();
+        try {
+            $response = $observer->getEvent()->getResponse();
+            if ($response && $response->getStatusCode() === 404) {
+                $this->logger->info('404 detected, redirecting to the contact page.');
 
-        if ($statuscode == 404) {
-            $this->actionFlag->set('',\Magento\Framework\App\Action\Action::FLAG_NO_DISPATCH, true);
-            $this->redirect->redirect($this->response,'/contact');
+                $customRedirectURL = $this->url->getUrl('contact');
+                $this->responseFactory->create()->setRedirect($customRedirectURL)->sendResponse();
+                exit; 
+            }
+        } catch (\Exception $e) {
+            $this->logger->error('Error in Redirect404 Observer: ' . $e->getMessage());
         }
     }
 }
 
-?>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/routes.xsd">
+    <router id="adminhtml">
+        <route id="prisha2_mod5" frontName="prisha2_mod5">
+            <module name="Prisha2_Mod5" />
+        </route>
+    </router>
+</config>
