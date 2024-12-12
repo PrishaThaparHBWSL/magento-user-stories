@@ -23,27 +23,38 @@ class MassDelete extends Action
         PopupRepositoryInterface $popupRepository
     ) {
         parent::__construct($context);
+
+        // Assign injected dependencies to class properties
+        $this->filter = $filter;
+        $this->collectionFactory = $collectionFactory;
+        $this->popupRepository = $popupRepository;
     }
 
-    public function execute():ResultInterface
+    public function execute(): ResultInterface
     {
         try {
+            // Retrieve the collection of items to delete
             $collection = $this->filter->getCollection($this->collectionFactory->create());
-            $collectionSize=$collection->getSize();
+            $collectionSize = $collection->getSize();
 
-            foreach($collection as $popup) {
+            // Delete each popup
+            foreach ($collection as $popup) {
                 $this->popupRepository->delete($popup);
             }
-            $this->messageManager->addSuccessMessage(__('A total of %1 record(s) have been deleted', $collectionSize));
-        } catch(\Throwable $exception) {
+
+            // Add success message with placeholder substitution
+            $this->messageManager->addSuccessMessage(
+                __('A total of %1 record(s) have been deleted.', $collectionSize)
+            );
+        } catch (\Throwable $exception) {
+            // Add error message
             $this->messageManager->addErrorMessage(
-                __('Something went wrong while processing the operation :(')
+                __('Something went wrong while processing the delete operation: %1', $exception->getMessage())
             );
         }
 
+        // Redirect to the index page
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $result->setPath('magemastery_popup/popup/index');
-
     }
-
 }

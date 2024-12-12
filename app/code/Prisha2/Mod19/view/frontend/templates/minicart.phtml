@@ -1,6 +1,7 @@
 <div class="cross-sell-products">
     <h3>You may also like 12345</h3>
     <?php $crossSellProducts = $block->getCrossSellProducts(); ?>
+    <h2>Recommendations</h2>
     <?php if (!empty($crossSellProducts)): ?>
         <h2>Recommended for You</h2>
         <?php foreach ($crossSellProducts as $itemId => $products): ?>

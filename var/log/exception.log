@@ -271,3 +271,9 @@
 [2024-12-11 05:37:49] main.CRITICAL: Can't check requested quantity for products without Source Items support. {"exception":"[object] (Magento\\Framework\\Exception\\InputException(code: 0): Can't check requested quantity for products without Source Items support. at /var/www/html/magento2/vendor/magento/module-inventory-sales/Model/GetProductSalableQty.php:109)"} []
 [2024-12-11 06:16:43] main.CRITICAL: Can't check requested quantity for products without Source Items support. {"exception":"[object] (Magento\\Framework\\Exception\\InputException(code: 0): Can't check requested quantity for products without Source Items support. at /var/www/html/magento2/vendor/magento/module-inventory-sales/Model/GetProductSalableQty.php:109)"} []
 [2024-12-11 06:33:08] main.CRITICAL: Can't check requested quantity for products without Source Items support. {"exception":"[object] (Magento\\Framework\\Exception\\InputException(code: 0): Can't check requested quantity for products without Source Items support. at /var/www/html/magento2/vendor/magento/module-inventory-sales/Model/GetProductSalableQty.php:109)"} []
+[2024-12-11 07:00:02] main.CRITICAL: MBI service CURL connection error #6: Could not resolve host: advancedreporting.rjmetrics.com {"exception":"[object] (Exception(code: 0): MBI service CURL connection error #6: Could not resolve host: advancedreporting.rjmetrics.com at /var/www/html/magento2/vendor/magento/module-analytics/Model/Connector/Http/Client/Curl.php:75)"} []
+[2024-12-11 07:14:02] main.CRITICAL: Element 'container': Character content other than whitespace is not allowed because the content type is 'element-only'.
+Line: 560
+ {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Element 'container': Character content other than whitespace is not allowed because the content type is 'element-only'.
+Line: 560
+ at /var/www/html/magento2/vendor/magento/framework/Config/Dom.php:461)"} []

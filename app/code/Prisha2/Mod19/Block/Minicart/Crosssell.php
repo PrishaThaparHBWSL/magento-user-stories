@@ -1,7 +1,7 @@
 <?php
-
 namespace Prisha2\Mod19\Block\Minicart;
 
+use Magento\Catalog\Api\ProductLinkRepositoryInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Checkout\Block\Cart\Sidebar;
 use Magento\Framework\View\Element\Template;
@@ -11,25 +11,25 @@ use Psr\Log\LoggerInterface;
 class Crosssell extends Template
 {
     protected $productRepository;
+    protected $productLinkRepository;
     protected $cart;
     protected $logger;
 
     public function __construct(
         Template\Context $context,
         ProductRepositoryInterface $productRepository,
+        ProductLinkRepositoryInterface $productLinkRepository,
         Sidebar $cart,
-        Logger $logger,
+        LoggerInterface $logger,
         array $data = []
     ) {
         $this->productRepository = $productRepository;
+        $this->productLinkRepository = $productLinkRepository;
         $this->cart = $cart;
         $this->logger = $logger;
         parent::__construct($context, $data);
     }
 
-    /**
-     * Fetch cross-sell products for each item in the cart.
-     */
     public function getCrossSellProducts()
     {
         $this->logger->info('Fetching cross-sell products...');
@@ -48,17 +48,12 @@ class Crosssell extends Template
                 $productId = $item->getProduct()->getId();
                 $this->logger->info('Fetching product with ID: ' . $productId);
     
-                $product = $this->productRepository->getById($productId);
-                $this->logger->info('Product loaded: ' . $product->getName());
-    
-                $crossSells = $product->getCrossSellProducts();
-                if ($crossSells) {
-                    foreach ($crossSells as $crossSellProduct) {
-                        $crossSellProducts[] = $crossSellProduct;
-                        $this->logger->info('Cross-sell product: ' . $crossSellProduct->getName());
-                    }
-                } else {
-                    $this->logger->info('No cross-sell products found for product: ' . $product->getName());
+                $linkedProducts = $this->productLinkRepository->getList($productId, 'cross_sell');
+                foreach ($linkedProducts as $link) {
+                    $linkedProductId = $link->getLinkedProductSku();
+                    $linkedProduct = $this->productRepository->get($linkedProductId);
+                    $crossSellProducts[$productId][] = $linkedProduct;
+                    $this->logger->info('Cross-sell product: ' . $linkedProduct->getName());
                 }
             } catch (\Exception $e) {
                 $this->logger->error('Error processing cart item: ' . $item->getName(), [
@@ -71,11 +66,7 @@ class Crosssell extends Template
     
         return $crossSellProducts;
     }
-    
 
-    /**
-     * Helper function to get the image URL for a product
-     */
     public function getImageUrl($product)
     {
         return $this->_urlBuilder->getBaseUrl() . 'pub/media/catalog/product' . $product->getImage();

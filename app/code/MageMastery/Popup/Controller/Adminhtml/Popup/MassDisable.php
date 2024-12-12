@@ -16,6 +16,7 @@ class MassDisable extends Action
     private $filter;
     private $collectionFactory;
     private $popupRepository;
+
     public function __construct(
         Context $context,
         Filter $filter,
@@ -23,37 +24,34 @@ class MassDisable extends Action
         PopupRepositoryInterface $popupRepository
     ) {
         parent::__construct($context);
+
+        // Correctly assign the dependencies to the class properties
+        $this->filter = $filter;
+        $this->collectionFactory = $collectionFactory;
+        $this->popupRepository = $popupRepository;
     }
 
-    public function execute():ResultInterface
+    public function execute(): ResultInterface
     {
-        // $collection = $this->filter->getCollection($this->collectionFactory->create());
-        // $collectionSize=$collection->getSize();
-
-        // foreach($collection as $popup){
-        // $popup->setIsActive(PopupInterface::STATUS_DISABLED);
-        // $this->popupRepository->save($popup);
-        // }
-        // $this->messageManager->addSuccessMessage(__('A total of %1 record(s) have been deleted', $collectionSize));
-
         try {
             $collection = $this->filter->getCollection($this->collectionFactory->create());
-            $collectionSize=$collection->getSize();
+            $collectionSize = $collection->getSize();
 
-            foreach($collection as $popup) {
+            foreach ($collection as $popup) {
                 $popup->setIsActive(PopupInterface::STATUS_DISABLED);
                 $this->popupRepository->save($popup);
             }
-            $this->messageManager->addSuccessMessage(__('A total of %1 record(s) have been deleted', $collectionSize));
-        } catch(\Throwable $exception) {
+
+            $this->messageManager->addSuccessMessage(
+                __('A total of %1 record(s) have been disabled.', $collectionSize)
+            );
+        } catch (\Throwable $exception) {
             $this->messageManager->addErrorMessage(
-                __('Something went wrong while processing the operation :(')
+                __('Something went wrong while processing the operation: %1', $exception->getMessage())
             );
         }
 
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $result->setPath('magemastery_popup/popup/index');
-
     }
-
 }

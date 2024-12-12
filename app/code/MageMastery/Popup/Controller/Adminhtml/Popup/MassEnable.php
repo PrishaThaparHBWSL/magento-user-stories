@@ -16,6 +16,7 @@ class MassEnable extends Action
     private $filter;
     private $collectionFactory;
     private $popupRepository;
+
     public function __construct(
         Context $context,
         Filter $filter,
@@ -23,37 +24,34 @@ class MassEnable extends Action
         PopupRepositoryInterface $popupRepository
     ) {
         parent::__construct($context);
+
+        // Assigning injected dependencies to class properties
+        $this->filter = $filter;
+        $this->collectionFactory = $collectionFactory;
+        $this->popupRepository = $popupRepository;
     }
 
-    public function execute():ResultInterface
+    public function execute(): ResultInterface
     {
-        $collection = $this->filter->getCollection($this->collectionFactory->create());
-        $collectionSize=$collection->getSize();
+        try {
+            $collection = $this->filter->getCollection($this->collectionFactory->create());
+            $collectionSize = $collection->getSize();
 
-        foreach($collection as $popup) {
-            $popup->setIsActive(PopupInterface::STATUS_DISABLED);
-            $this->popupRepository->save($popup);
+            foreach ($collection as $popup) {
+                $popup->setIsActive(PopupInterface::STATUS_ENABLED); // Correct status
+                $this->popupRepository->save($popup);
+            }
+
+            $this->messageManager->addSuccessMessage(
+                __('A total of %1 record(s) have been enabled.', $collectionSize) // Corrected message
+            );
+        } catch (\Throwable $exception) {
+            $this->messageManager->addErrorMessage(
+                __('Something went wrong while processing the enable operation: %1', $exception->getMessage())
+            );
         }
-        $this->messageManager->addSuccessMessage(__('A total of %1 record(s) have been deleted', $collectionSize));
-
-        // try {
-        //     $collection = $this->filter->getCollection($this->collectionFactory->create());
-        //     $collectionSize=$collection->getSize();
-
-        //     foreach($collection as $popup) {
-        //         $popup->setIsActive(PopupInterface::STATUS_ENABLED);
-        //         $this->popupRepository->save($popup);
-        //     }
-        //     $this->messageManager->addSuccessMessage(__('A total of %1 record(s) have been enabled', $collectionSize));
-        // } catch(\Throwable $exception) {
-        //     $this->messageManager->addErrorMessage(
-        //         __('Something went wrong while processing the enable operation :(')
-        //     );
-        // }
 
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $result->setPath('magemastery_popup/popup/index');
-
     }
-
 }
