@@ -277,3 +277,5 @@ Line: 560
  {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Element 'container': Character content other than whitespace is not allowed because the content type is 'element-only'.
 Line: 560
  at /var/www/html/magento2/vendor/magento/framework/Config/Dom.php:461)"} []
+[2024-12-12 09:54:00] main.ERROR: Unable to send mail: Unknown error {"exception":"[object] (Laminas\\Mail\\Transport\\Exception\\RuntimeException(code: 0): Unable to send mail: Unknown error at /var/www/html/magento2/vendor/laminas/laminas-mail/src/Transport/Sendmail.php:298)"} []
+[2024-12-12 10:00:02] main.CRITICAL: MBI service CURL connection error #6: Could not resolve host: advancedreporting.rjmetrics.com {"exception":"[object] (Exception(code: 0): MBI service CURL connection error #6: Could not resolve host: advancedreporting.rjmetrics.com at /var/www/html/magento2/vendor/magento/module-analytics/Model/Connector/Http/Client/Curl.php:75)"} []
