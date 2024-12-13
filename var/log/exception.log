@@ -279,3 +279,68 @@ Line: 560
  at /var/www/html/magento2/vendor/magento/framework/Config/Dom.php:461)"} []
 [2024-12-12 09:54:00] main.ERROR: Unable to send mail: Unknown error {"exception":"[object] (Laminas\\Mail\\Transport\\Exception\\RuntimeException(code: 0): Unable to send mail: Unknown error at /var/www/html/magento2/vendor/laminas/laminas-mail/src/Transport/Sendmail.php:298)"} []
 [2024-12-12 10:00:02] main.CRITICAL: MBI service CURL connection error #6: Could not resolve host: advancedreporting.rjmetrics.com {"exception":"[object] (Exception(code: 0): MBI service CURL connection error #6: Could not resolve host: advancedreporting.rjmetrics.com at /var/www/html/magento2/vendor/magento/module-analytics/Model/Connector/Http/Client/Curl.php:75)"} []
+[2024-12-13 13:12:15] main.CRITICAL: Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/checkout_cart_sidebar.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/checkout_cart_sidebar.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 at /var/www/html/magento2/vendor/magento/framework/View/Model/Layout/Merge.php:791)"} []
+[2024-12-13 13:12:15] main.CRITICAL: Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/checkout_cart_sidebar.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/checkout_cart_sidebar.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 at /var/www/html/magento2/vendor/magento/framework/View/Model/Layout/Merge.php:791)"} []
+[2024-12-13 13:12:15] main.CRITICAL: Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/checkout_cart_sidebar.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/checkout_cart_sidebar.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 at /var/www/html/magento2/vendor/magento/framework/View/Model/Layout/Merge.php:791)"} []
+[2024-12-13 13:13:09] main.CRITICAL: Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/default.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/default.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 at /var/www/html/magento2/vendor/magento/framework/View/Model/Layout/Merge.php:791)"} []
+[2024-12-13 13:13:13] main.CRITICAL: Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/default.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file '/var/www/html/magento2/app/code/Prisha2/Mod19/view/frontend/layout/default.xml' is not valid.
+Opening and ending tag mismatch: block line 4 and referenceContainer
+ Line: 13
+Opening and ending tag mismatch: referenceContainer line 3 and layout
+ Line: 14
+Premature end of data in tag layout line 2
+ Line: 15 at /var/www/html/magento2/vendor/magento/framework/View/Model/Layout/Merge.php:791)"} []

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_configuration.xsd">
     <referenceContainer name="minicart.addons">
-        <block name="prisha2_mod19_minicart_crosssell" template="Prisha2_Mod19::minicart.phtml"/>
+        <block class="Prisha2\Mod19\Block\Minicart\Crosssell" name="minicart.crosssell" template="Prisha2_Mod19::minicart.phtml">
+            <arguments>
+                <argument name="type" xsi:type="string">crosssell</argument>
+            </arguments>
+        </block>
     </referenceContainer>
 </layout>

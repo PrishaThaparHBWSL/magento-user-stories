@@ -17,6 +17,7 @@ class Crosssell extends Template
 
     public function __construct(
         Template\Context $context,
+        \Magento\Framework\Registry $registry,
         ProductRepositoryInterface $productRepository,
         ProductLinkRepositoryInterface $productLinkRepository,
         Sidebar $cart,
@@ -24,6 +25,7 @@ class Crosssell extends Template
         array $data = []
     ) {
         $this->productRepository = $productRepository;
+        $this->_registry = $registry;
         $this->productLinkRepository = $productLinkRepository;
         $this->cart = $cart;
         $this->logger = $logger;
@@ -45,14 +47,14 @@ class Crosssell extends Template
             try {
                 $this->logger->info('Processing cart item: ' . $item->getName());
     
-                $productId = $item->getProduct()->getId();
-                $this->logger->info('Fetching product with ID: ' . $productId);
-    
-                $linkedProducts = $this->productLinkRepository->getList($productId, 'cross_sell');
+                $productSku = $item->getProduct()->getSku();
+                $this->logger->info('Fetching product with ID: ' . $productSku);
+                
+                $linkedProducts = $this->productRepository->get($productSku)->getCrosssellProducts();
                 foreach ($linkedProducts as $link) {
-                    $linkedProductId = $link->getLinkedProductSku();
-                    $linkedProduct = $this->productRepository->get($linkedProductId);
-                    $crossSellProducts[$productId][] = $linkedProduct;
+                    $linkedproductSku = $link->getSku();
+                    $linkedProduct = $this->productRepository->get($linkedproductSku);
+                    $crossSellProducts[$productSku][] = $linkedProduct;
                     $this->logger->info('Cross-sell product: ' . $linkedProduct->getName());
                 }
             } catch (\Exception $e) {
