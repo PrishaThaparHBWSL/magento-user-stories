@@ -344,3 +344,5 @@ Opening and ending tag mismatch: referenceContainer line 3 and layout
  Line: 14
 Premature end of data in tag layout line 2
  Line: 15 at /var/www/html/magento2/vendor/magento/framework/View/Model/Layout/Merge.php:791)"} []
+[2024-12-16 09:03:58] main.CRITICAL: Can't check requested quantity for products without Source Items support. {"exception":"[object] (Magento\\Framework\\Exception\\InputException(code: 0): Can't check requested quantity for products without Source Items support. at /var/www/html/magento2/vendor/magento/module-inventory-sales/Model/GetProductSalableQty.php:109)"} []
+[2024-12-16 11:42:21] main.CRITICAL: Can't check requested quantity for products without Source Items support. {"exception":"[object] (Magento\\Framework\\Exception\\InputException(code: 0): Can't check requested quantity for products without Source Items support. at /var/www/html/magento2/vendor/magento/module-inventory-sales/Model/GetProductSalableQty.php:109)"} []
