@@ -358,6 +358,7 @@ return [
         'MagicToolbox_Magic360' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
+        'Practise_Deffer' => 1,
         'Prisha2_Checkout' => 1,
         'Prisha2_Mod1' => 1,
         'Prisha2_Mod14' => 1,

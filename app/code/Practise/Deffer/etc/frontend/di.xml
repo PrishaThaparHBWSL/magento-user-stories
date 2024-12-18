@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
+    <!-- Dependency Injection Configuration -->
+    <type name="Practise\Deffer\Model\AsyncDefer">
+        <arguments>
+            <argument name="logger" xsi:type="object">Psr\Log\LoggerInterface</argument>
+            <argument name="queueManager" xsi:type="object">Magento\Framework\MessageQueue\PublisherInterface</argument>
+        </arguments>
+    </type>
+
+    <!-- Configure a Cron Job if needed -->
+    <type name="Magento\Cron\Model\Schedule">
+        <arguments>
+            <argument name="cronJob" xsi:type="string">Practise_Deffer::asyncJob</argument>
+        </arguments>
+    </type>
+
+    <!-- Async/Deferred Task -->
+    <type name="Practise\Deffer\Model\AsyncDefer">
+        <arguments>
+            <argument name="taskName" xsi:type="string">asyncDeferredTask</argument>
+        </arguments>
+    </type>
+</config>
